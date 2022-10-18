@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components/native'
 
+import { LinearGradient as LinearGradientPrimitive } from 'expo-linear-gradient'
+
 export type ButtonTypeStyleProps = 'PRIMARY' | 'SECONDARY'
 
 interface Props {
@@ -8,16 +10,15 @@ interface Props {
 
 export const ButtonContainer = styled.TouchableOpacity<Props>`
   width: 100%;
+`
+
+export const LinearGradient = styled(LinearGradientPrimitive)`
+  width: 100%;
 
   min-height: 56px;
   max-height: 56px;
 
   border-radius: 8px;
-
-  background-color: ${({ type }) =>
-    type === 'PRIMARY'
-      ? 'linear-gradient(90deg, #EE9D00 0%, rgba(238, 157, 0, 0.75) 101.68%)'
-      : 'linear-gradient(90deg, #5552FF 0%, rgba(85, 82, 255, 0.75) 101.68%)'};
 
   justify-content: center;
   align-items: center;
