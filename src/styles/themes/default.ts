@@ -5,6 +5,10 @@ export const defaultTheme = {
     YELLOW_500: '#EE9D00',
 
     PURPLE_500: '#5552FF',
+
+    GRAY_200: '#DDDEDF',
+    GRAY_500: '#8C8C8C',
+    GRAY_700: '#333638',
   },
   FONT_FAMILY: {
     REGULAR: 'Montserrat_400Regular',
