@@ -30,8 +30,8 @@ export function SignIn() {
       <Image source={Logo} />
 
       <Form>
-        <Input label="Email" />
-        <Input label="Senha" />
+        <Input label="Email" keyboardType="email-address" />
+        <Input label="Senha" secureTextEntry />
 
         <ForgotPassword>
           <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
