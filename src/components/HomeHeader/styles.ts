@@ -1,10 +1,24 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 
 export const HomeHeaderContainer = styled.View`
+  height: 64px;
+`
+
+export const Content = styled.View`
   width: 100%;
-  height: 94px;
+  height: 100%;
 
-  padding: 24px;
+  flex-direction: row;
+  align-items: center;
 
-  background-color: #5552ff;
+  justify-content: space-between;
+  padding: 0 24px;
+`
+
+export const Name = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.MD}px;
+    font-family: ${theme.FONT_FAMILY.SEMI_BOLD};
+    color: ${theme.COLORS.WHITE};
+  `}
 `

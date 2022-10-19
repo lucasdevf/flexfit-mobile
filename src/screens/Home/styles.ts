@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 export const HomeContainer = styled(SafeAreaView)`
   flex: 1;
+  padding-top: 24px;
 `
 
 export const Content = styled.View`
@@ -13,6 +14,8 @@ export const Content = styled.View`
   justify-content: center;
 
   padding: 24px;
+
+  background: white;
 `
 
 export const Buttons = styled.View`
@@ -20,6 +23,6 @@ export const Buttons = styled.View`
   align-items: center;
   justify-content: space-between;
 
-  width: 284px;
+  width: 100%;
   margin-top: 48px;
 `

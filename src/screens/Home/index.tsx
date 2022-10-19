@@ -4,25 +4,45 @@ import { Ruler, Crosshair, ListChecks } from 'phosphor-react-native'
 /* COMPONENTS */
 import { ButtonIcon } from '../../components/ButtonIcon'
 import { HomeHeader } from '../../components/HomeHeader'
+import { StatusTraining } from '../../components/StatusTraining'
 import { Weight } from '../../components/Weight'
 
 /* STYLES */
 import { Content, HomeContainer, Buttons } from './styles'
+import { LinearGradient } from 'expo-linear-gradient'
+import { StatusBar } from 'react-native'
 
 export function Home() {
   return (
-    <HomeContainer>
-      <HomeHeader />
+    <LinearGradient
+      colors={['rgba(85,82, 255, 100)', 'rgba(85,82, 255, 75)']}
+      start={{ x: 0.0, y: 1.0 }}
+      end={{ x: 1.0, y: 1.0 }}
+      style={{
+        flex: 1,
+      }}
+    >
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
 
-      <Content>
-        <Weight />
+      <HomeContainer>
+        <HomeHeader />
 
-        <Buttons>
-          <ButtonIcon icon={<Ruler />} title="Medidas" />
-          <ButtonIcon icon={<Crosshair />} title="Metas" />
-          <ButtonIcon icon={<ListChecks />} title="Histórico" />
-        </Buttons>
-      </Content>
-    </HomeContainer>
+        <Content>
+          <StatusTraining />
+
+          <Weight />
+
+          <Buttons>
+            <ButtonIcon icon={<Ruler />} title="Medidas" />
+            <ButtonIcon icon={<Crosshair />} title="Metas" />
+            <ButtonIcon icon={<ListChecks />} title="Histórico" />
+          </Buttons>
+        </Content>
+      </HomeContainer>
+    </LinearGradient>
   )
 }
