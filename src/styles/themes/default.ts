@@ -6,6 +6,8 @@ export const defaultTheme = {
 
     PURPLE_500: '#5552FF',
 
+    RED_500: '#EF1B1B',
+
     GRAY_100: '#F1F1F1',
     GRAY_200: '#DDDEDF',
     GRAY_300: '#BCBCBC',

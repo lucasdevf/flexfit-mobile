@@ -8,3 +8,9 @@ export const MyTrainingsContainer = styled(SafeAreaView)`
   background: white;
   flex: 1;
 `
+
+export const Content = styled.View`
+  flex: 1;
+`
+
+export const TrainingsList = styled.View``
