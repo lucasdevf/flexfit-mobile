@@ -4,7 +4,8 @@ export declare global {
     interface RootParamList {
       presentation: undefined
       signIn: undefined
-      home: undefined
+      appBottomTabs: undefined
+      myTrainings: undefined
     }
   }
 }

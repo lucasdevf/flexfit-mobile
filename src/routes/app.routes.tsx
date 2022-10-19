@@ -1,48 +1,23 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Barbell, ForkKnife, House } from 'phosphor-react-native'
-import { useTheme } from 'styled-components/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { BottomTabRoutes } from './app/bottom-tabs.routes'
 
 /* SCREENS */
-import { Home } from '../screens/Home'
-import { Training } from '../screens/Training'
+import { MyTrainings } from '../screens/MyTrainings'
 
-const { Navigator, Screen } = createBottomTabNavigator()
+const { Navigator, Screen } = createNativeStackNavigator()
 
 export function AppRoutes() {
-  const { COLORS } = useTheme()
-
   return (
-    <Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: COLORS.YELLOW_500,
-        tabBarInactiveTintColor: COLORS.GRAY_300,
-      }}
-    >
-      <Screen
-        name="home"
-        component={Home}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <House weight="fill" color={color} size={28} />
-          ),
+    <>
+      <Navigator
+        screenOptions={{
+          headerShown: false,
         }}
-      />
-      <Screen
-        name="training"
-        component={Training}
-        options={{
-          tabBarIcon: ({ color }) => <Barbell color={color} size={28} />,
-        }}
-      />
-      <Screen
-        name="diet"
-        component={Home}
-        options={{
-          tabBarIcon: ({ color }) => <ForkKnife color={color} size={28} />,
-        }}
-      />
-    </Navigator>
+      >
+        <Screen name="appBottomTabs" component={BottomTabRoutes} />
+
+        <Screen name="myTrainings" component={MyTrainings} />
+      </Navigator>
+    </>
   )
 }

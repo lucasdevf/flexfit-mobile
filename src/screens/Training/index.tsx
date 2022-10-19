@@ -1,6 +1,9 @@
 /* REACT */
 import { StatusBar } from 'react-native'
 
+/* NAVIGATION */
+import { useNavigation } from '@react-navigation/native'
+
 /* ICONS */
 import { Barbell, Calendar } from 'phosphor-react-native'
 
@@ -14,6 +17,8 @@ import { ButtonOptionScreen } from '../../components/ButtonOptionScreen'
 
 export function Training() {
   const { COLORS } = useTheme()
+
+  const navigation = useNavigation()
 
   return (
     <TrainingContainer>
@@ -30,6 +35,7 @@ export function Training() {
           title="Meus treinos"
           icon={<Barbell color={COLORS.PURPLE_500} />}
           style={{ marginBottom: 28 }}
+          onPress={() => navigation.navigate('myTrainings')}
         />
         <ButtonOptionScreen
           title="Calendário"

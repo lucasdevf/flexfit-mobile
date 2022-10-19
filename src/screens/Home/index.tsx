@@ -37,7 +37,11 @@ export function Home() {
           <Weight />
 
           <Buttons>
-            <ButtonIcon icon={<Ruler />} title="Medidas" />
+            <ButtonIcon
+              onPress={() => signOut()}
+              icon={<Ruler />}
+              title="Medidas"
+            />
             <ButtonIcon icon={<Crosshair />} title="Metas" />
             <ButtonIcon icon={<ListChecks />} title="Histórico" />
           </Buttons>

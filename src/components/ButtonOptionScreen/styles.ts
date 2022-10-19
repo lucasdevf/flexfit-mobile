@@ -5,7 +5,7 @@ export const ButtonOptionScreenContainer = styled.TouchableOpacity`
   align-items: center;
   padding: 16px;
 
-  background: ${({ theme }) => theme.COLORS.GRAY_200};
+  background: ${({ theme }) => theme.COLORS.GRAY_100};
   border-radius: 8px;
 `
 

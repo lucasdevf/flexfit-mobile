@@ -28,7 +28,7 @@ export function SignIn() {
   async function handleSignIn() {
     await AsyncStorage.setItem('@flexFit:token-auth', '123')
 
-    navigation.navigate('home')
+    navigation.navigate('appBottomTabs')
   }
 
   return (
