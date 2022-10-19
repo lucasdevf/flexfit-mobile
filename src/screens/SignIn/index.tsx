@@ -1,5 +1,6 @@
 /* REACT */
 import { Image, StatusBar } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native'
@@ -24,6 +25,12 @@ import { TextLogin } from '../../components/TextLogin'
 export function SignIn() {
   const navigation = useNavigation()
 
+  async function handleSignIn() {
+    await AsyncStorage.setItem('@flexFit:token-auth', '123')
+
+    navigation.navigate('home')
+  }
+
   return (
     <SignInContainer>
       <StatusBar
@@ -42,7 +49,7 @@ export function SignIn() {
           <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
         </ForgotPassword>
 
-        <Button title="Entrar" onPress={() => navigation.navigate('home')} />
+        <Button title="Entrar" onPress={handleSignIn} />
 
         <ButtonSignInWithGoogle />
       </Form>

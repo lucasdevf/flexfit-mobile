@@ -18,7 +18,7 @@ export function HomeHeader() {
         <Content>
           <Name>Jane Doe</Name>
 
-          <Bell color={theme.COLORS.WHITE} size={20} />
+          <Bell color={theme.COLORS.WHITE} size={28} />
         </Content>
       </LinearGradient>
     </HomeHeaderContainer>

@@ -8,6 +8,7 @@ export const defaultTheme = {
 
     GRAY_100: '#F1F1F1',
     GRAY_200: '#DDDEDF',
+    GRAY_300: '#BCBCBC',
     GRAY_500: '#8C8C8C',
     GRAY_700: '#333638',
   },

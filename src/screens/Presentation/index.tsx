@@ -1,5 +1,5 @@
 /* REACT */
-import { Image } from 'react-native'
+import { Image, StatusBar } from 'react-native'
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native'
@@ -25,6 +25,11 @@ export function Presentation() {
 
   return (
     <PresentationContainer>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
       <Image source={ImagePresentation} />
 
       <Content>

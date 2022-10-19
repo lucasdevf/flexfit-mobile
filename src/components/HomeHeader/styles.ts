@@ -1,18 +1,18 @@
 import styled, { css } from 'styled-components/native'
 
-export const HomeHeaderContainer = styled.View`
-  height: 64px;
-`
+export const HomeHeaderContainer = styled.View``
 
 export const Content = styled.View`
   width: 100%;
-  height: 100%;
 
   flex-direction: row;
   align-items: center;
 
   justify-content: space-between;
   padding: 0 24px;
+
+  padding-top: 12px;
+  padding-bottom: 36px;
 `
 
 export const Name = styled.Text`
