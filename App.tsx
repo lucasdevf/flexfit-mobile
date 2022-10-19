@@ -3,9 +3,6 @@ import { Text } from 'react-native'
 
 /* STYLES */
 import { ThemeProvider } from 'styled-components'
-import { Presentation } from './src/screens/Presentation'
-import { SignIn } from './src/screens/SignIn'
-import { Home } from './src/screens/Home'
 import { defaultTheme } from './src/styles/themes/default'
 
 /* FONTS */
@@ -15,6 +12,9 @@ import {
   Montserrat_500Medium,
   Montserrat_600SemiBold,
 } from '@expo-google-fonts/montserrat'
+
+/* ROUTES */
+import { Routes } from './src/routes'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Home />
+      <Routes />
     </ThemeProvider>
   )
 }

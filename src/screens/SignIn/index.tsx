@@ -1,6 +1,9 @@
 /* REACT */
 import { Image, StatusBar } from 'react-native'
 
+/* NAVIGATION */
+import { useNavigation } from '@react-navigation/native'
+
 /* STYLES */
 import {
   SignInContainer,
@@ -19,6 +22,8 @@ import { ButtonSignInWithGoogle } from '../../components/ButtonSignInWithGoogle'
 import { TextLogin } from '../../components/TextLogin'
 
 export function SignIn() {
+  const navigation = useNavigation()
+
   return (
     <SignInContainer>
       <StatusBar
@@ -37,7 +42,7 @@ export function SignIn() {
           <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
         </ForgotPassword>
 
-        <Button title="Entrar" />
+        <Button title="Entrar" onPress={() => navigation.navigate('home')} />
 
         <ButtonSignInWithGoogle />
       </Form>

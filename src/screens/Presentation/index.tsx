@@ -1,4 +1,10 @@
+/* REACT */
 import { Image } from 'react-native'
+
+/* NAVIGATION */
+import { useNavigation } from '@react-navigation/native'
+
+/* STYLES */
 import {
   PresentationContainer,
   Content,
@@ -8,10 +14,15 @@ import {
   TextSignInButton,
 } from './styles'
 
+/* ASSETS */
 import ImagePresentation from '../../assets/men-and-woman.png'
+
+/* COMPONENTS */
 import { Button } from '../../components/Button'
 
 export function Presentation() {
+  const navigation = useNavigation()
+
   return (
     <PresentationContainer>
       <Image source={ImagePresentation} />
@@ -27,7 +38,7 @@ export function Presentation() {
 
       <Button title="Criar uma conta" type="SECONDARY" />
 
-      <SignInButton>
+      <SignInButton onPress={() => navigation.navigate('signIn')}>
         <TextSignInButton>Fazer login</TextSignInButton>
       </SignInButton>
     </PresentationContainer>
