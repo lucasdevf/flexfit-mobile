@@ -4,7 +4,7 @@ export const TrainingContainer = styled.View`
   flex-direction: row;
   align-items: center;
 
-  padding: 12px 0;
+  padding-bottom: 28px;
 `
 
 export const Content = styled.View`

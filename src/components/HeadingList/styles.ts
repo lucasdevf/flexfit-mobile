@@ -7,7 +7,7 @@ export const HeadingListContainer = styled.View`
   align-items: center;
 
   margin-top: 36px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 `
 
 export const Title = styled.Text`
