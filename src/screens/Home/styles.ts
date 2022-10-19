@@ -11,4 +11,15 @@ export const Content = styled.View`
 
   align-items: center;
   justify-content: center;
+
+  padding: 24px;
+`
+
+export const Buttons = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 284px;
+  margin-top: 48px;
 `

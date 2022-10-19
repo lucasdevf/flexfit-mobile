@@ -6,9 +6,5 @@ export const HomeHeaderContainer = styled.View`
 
   padding: 24px;
 
-  background-color: linear-gradient(
-    90deg,
-    #5552ff 0%,
-    rgba(85, 82, 255, 0.75) 100%
-  );
+  background-color: #5552ff;
 `

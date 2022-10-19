@@ -3,9 +3,9 @@ import { Text } from 'react-native'
 
 /* STYLES */
 import { ThemeProvider } from 'styled-components'
-// import { Presentation } from './src/screens/Presentation'
+import { Presentation } from './src/screens/Presentation'
 import { SignIn } from './src/screens/SignIn'
-// import { Home } from './src/screens/Home'
+import { Home } from './src/screens/Home'
 import { defaultTheme } from './src/styles/themes/default'
 
 /* FONTS */
@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <SignIn />
+      <Home />
     </ThemeProvider>
   )
 }

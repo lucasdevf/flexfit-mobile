@@ -5,19 +5,19 @@ export const LinearGradient = styled(LinearGradientPrimitive)`
   height: 164px;
   width: 164px;
 
+  align-items: center;
   justify-content: center;
   border-radius: 999px;
 `
 
 export const WeightContainer = styled.View`
+  height: 159px;
+  width: 159px;
+
   align-items: center;
   justify-content: center;
 
   background: white;
-
-  height: 161px;
-  width: 161px;
-
   border-radius: 999px;
 `
 
