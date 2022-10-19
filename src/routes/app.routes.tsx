@@ -1,7 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Barbell, ForkKnife, House } from 'phosphor-react-native'
 import { useTheme } from 'styled-components/native'
+
+/* SCREENS */
 import { Home } from '../screens/Home'
+import { Training } from '../screens/Training'
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
@@ -28,7 +31,7 @@ export function AppRoutes() {
       />
       <Screen
         name="training"
-        component={Home}
+        component={Training}
         options={{
           tabBarIcon: ({ color }) => <Barbell color={color} size={28} />,
         }}

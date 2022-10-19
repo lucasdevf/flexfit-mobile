@@ -36,7 +36,7 @@ export function SignIn() {
       <StatusBar
         barStyle="dark-content"
         backgroundColor="transparent"
-        translucent={true}
+        translucent
       />
 
       <Image source={Logo} />
