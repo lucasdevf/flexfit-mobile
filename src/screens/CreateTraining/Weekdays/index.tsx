@@ -2,17 +2,22 @@
 import { useState } from 'react'
 
 /* COMPONENTS */
-import { Button } from '../../components/Button'
-import { Checkbox } from '../../components/Checkbox'
+import { Button } from '../../../components/Button'
+import { Checkbox } from '../../../components/Checkbox'
 
 /* COMPONENTS */
-import { HeaderGoBack } from '../../components/HeaderGoBack'
+import { HeaderGoBack } from '../../../components/HeaderGoBack'
 
 /* STYLES */
 import { CreateTrainingWeekdaysContainer, Label, Weekdays } from './styles'
 
+/* NAVIGATION */
+import { useNavigation } from '@react-navigation/native'
+
 export function CreateTrainingWeekdays() {
   const steps = ['weekdays', 'exercises', 'name']
+
+  const navigation = useNavigation()
 
   const [weekdays, setWeekdays] = useState([
     {
@@ -82,7 +87,10 @@ export function CreateTrainingWeekdays() {
         ))}
       </Weekdays>
 
-      <Button title="Continuar" />
+      <Button
+        title="Continuar"
+        onPress={() => navigation.navigate('createTrainingExercises')}
+      />
     </CreateTrainingWeekdaysContainer>
   )
 }
