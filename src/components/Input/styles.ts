@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components/native'
 
 export const InputContainer = styled.View`
-  display: flex;
   align-items: flex-start;
 `
 

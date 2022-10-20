@@ -8,6 +8,7 @@ export declare global {
       myTrainings: undefined
       createTrainingWeekdays: undefined
       createTrainingExercises: undefined
+      addExercise: undefined
     }
   }
 }

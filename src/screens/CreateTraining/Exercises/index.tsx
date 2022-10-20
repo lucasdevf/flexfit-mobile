@@ -11,8 +11,13 @@ import {
   ExercisesList,
 } from './styles'
 
+/* NAVIGATION */
+import { useNavigation } from '@react-navigation/native'
+
 export function CreateTrainingExercises() {
   const steps = ['weekdays', 'exercises', 'name']
+
+  const navigation = useNavigation()
 
   const exercises: ExerciseProps[] = [
     {
@@ -41,6 +46,7 @@ export function CreateTrainingExercises() {
       <Button
         title="Adicionar exercício"
         type="SECONDARY"
+        onPress={() => navigation.navigate('addExercise')}
         style={{
           marginTop: 28,
         }}

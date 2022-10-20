@@ -5,6 +5,7 @@ import { BottomTabRoutes } from './app/bottom-tabs.routes'
 import { MyTrainings } from '../screens/MyTrainings'
 import { CreateTrainingWeekdays } from '../screens/CreateTraining/Weekdays'
 import { CreateTrainingExercises } from '../screens/CreateTraining/Exercises'
+import { AddExercise } from '../screens/CreateTraining/AddExercise'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
@@ -19,6 +20,7 @@ export function AppRoutes() {
         <Screen name="appBottomTabs" component={BottomTabRoutes} />
 
         <Screen name="myTrainings" component={MyTrainings} />
+
         <Screen
           name="createTrainingWeekdays"
           component={CreateTrainingWeekdays}
@@ -26,6 +28,15 @@ export function AppRoutes() {
         <Screen
           name="createTrainingExercises"
           component={CreateTrainingExercises}
+        />
+
+        <Screen
+          name="addExercise"
+          component={AddExercise}
+          options={{
+            presentation: 'containedTransparentModal',
+            animation: 'fade_from_bottom',
+          }}
         />
       </Navigator>
     </>
