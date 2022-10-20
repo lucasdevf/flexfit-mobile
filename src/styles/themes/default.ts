@@ -4,6 +4,7 @@ export const defaultTheme = {
 
     YELLOW_500: '#EE9D00',
 
+    PURPLE_300: '#ABA9FF',
     PURPLE_500: '#5552FF',
 
     RED_500: '#EF1B1B',
@@ -12,6 +13,7 @@ export const defaultTheme = {
     GRAY_200: '#DDDEDF',
     GRAY_300: '#BCBCBC',
     GRAY_500: '#8C8C8C',
+    GRAY_600: '#434343',
     GRAY_700: '#333638',
   },
   FONT_FAMILY: {

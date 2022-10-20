@@ -6,6 +6,7 @@ export declare global {
       signIn: undefined
       appBottomTabs: undefined
       myTrainings: undefined
+      createTrainingWeekdays: undefined
     }
   }
 }

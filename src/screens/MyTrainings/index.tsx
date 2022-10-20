@@ -5,10 +5,13 @@ import { useState } from 'react'
 import { Barbell } from 'phosphor-react-native'
 
 /* COMPONENTS */
-import { GoBackButton } from '../../components/GoBackButton'
+import { HeaderGoBack } from '../../components/HeaderGoBack'
 import { Heading } from '../../components/Heading'
 import { HeadingList } from '../../components/HeadingList'
 import { Button } from '../../components/Button'
+
+/* NAVIGATION */
+import { useNavigation } from '@react-navigation/native'
 
 /* STYLES */
 import { useTheme } from 'styled-components/native'
@@ -17,6 +20,8 @@ import { Training, TrainingProps } from '../../components/Training'
 
 export function MyTrainings() {
   const theme = useTheme()
+
+  const navigation = useNavigation()
 
   const [trainings, setTrainings] = useState<TrainingProps[]>([
     {
@@ -32,7 +37,7 @@ export function MyTrainings() {
   return (
     <MyTrainingsContainer>
       <Content>
-        <GoBackButton />
+        <HeaderGoBack />
 
         <Heading
           icon={<Barbell size={32} color={theme.COLORS.PURPLE_500} />}
@@ -49,7 +54,11 @@ export function MyTrainings() {
         </TrainingsList>
       </Content>
 
-      <Button title="Criar treino" type="SECONDARY" />
+      <Button
+        title="Criar treino"
+        type="SECONDARY"
+        onPress={() => navigation.navigate('createTrainingWeekdays')}
+      />
     </MyTrainingsContainer>
   )
 }
