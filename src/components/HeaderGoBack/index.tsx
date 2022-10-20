@@ -22,8 +22,8 @@ export function HeaderGoBack({ steps }: Props) {
   }
 
   return (
-    <HeaderGoBackContainer onPress={handleGoBack}>
-      <GoBackButton>
+    <HeaderGoBackContainer>
+      <GoBackButton onPress={handleGoBack}>
         <CaretLeft size={28} color={COLORS.GRAY_500} weight="bold" />
       </GoBackButton>
 
