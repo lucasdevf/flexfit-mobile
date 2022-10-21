@@ -59,6 +59,11 @@ export function CreateTrainingExercises() {
           <Exercise key={exercise.name} data={exercise} />
         ))}
       </ExercisesList>
+
+      <Button
+        title="Continuar"
+        onPress={() => navigation.navigate('createTrainingName')}
+      />
     </CreateTrainingExercisesContainer>
   )
 }
