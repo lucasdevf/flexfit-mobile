@@ -18,6 +18,7 @@ import { Routes } from './src/routes'
 import { QueryClientProvider } from 'react-query'
 import { queryClient } from './src/services/queryClient'
 import { AuthContextProvider } from './src/contexts/AuthContext'
+import { TrainingContextProvider } from './src/contexts/TrainingContext'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -34,7 +35,9 @@ export default function App() {
     <ThemeProvider theme={defaultTheme}>
       <QueryClientProvider client={queryClient}>
         <AuthContextProvider>
-          <Routes />
+          <TrainingContextProvider>
+            <Routes />
+          </TrainingContextProvider>
         </AuthContextProvider>
       </QueryClientProvider>
     </ThemeProvider>

@@ -1,5 +1,5 @@
 /* REACT */
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 /* COMPONENTS */
 import { Button } from '../../../components/Button'
@@ -13,38 +13,48 @@ import { CreateTrainingWeekdaysContainer, Label, Weekdays } from './styles'
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native'
+import { TrainingContext } from '../../../contexts/TrainingContext'
 
 export function CreateTrainingWeekdays() {
+  const { handleChangeWeekdays } = useContext(TrainingContext)
+
   const steps = ['weekdays', 'exercises', 'name']
 
   const navigation = useNavigation()
 
   const [weekdays, setWeekdays] = useState([
     {
+      value: 0,
       name: 'Domingo',
       checked: false,
     },
     {
+      value: 1,
       name: 'Segunda-feira',
       checked: false,
     },
     {
+      value: 2,
       name: 'Terça-feira',
       checked: false,
     },
     {
+      value: 3,
       name: 'Quarta-feira',
       checked: false,
     },
     {
+      value: 4,
       name: 'Quinta-feira',
       checked: false,
     },
     {
+      value: 5,
       name: 'Sexta-feira',
       checked: false,
     },
     {
+      value: 6,
       name: 'Sábado',
       checked: false,
     },
@@ -60,6 +70,14 @@ export function CreateTrainingWeekdays() {
         return item
       }),
     )
+  }
+
+  function handleContinue() {
+    handleChangeWeekdays(
+      weekdays.filter((item) => item.checked).map((item) => item.value),
+    )
+
+    navigation.navigate('createTrainingExercises')
   }
 
   return (
@@ -87,10 +105,9 @@ export function CreateTrainingWeekdays() {
         ))}
       </Weekdays>
 
-      <Button
-        title="Continuar"
-        onPress={() => navigation.navigate('createTrainingExercises')}
-      />
+      {weekdays.some((item) => item.checked) && (
+        <Button title="Continuar" onPress={handleContinue} />
+      )}
     </CreateTrainingWeekdaysContainer>
   )
 }

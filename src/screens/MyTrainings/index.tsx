@@ -11,7 +11,7 @@ import { HeadingList } from '../../components/HeadingList'
 import { Button } from '../../components/Button'
 
 /* NAVIGATION */
-import { useNavigation } from '@react-navigation/native'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 
 /* STYLES */
 import { useTheme } from 'styled-components/native'
@@ -21,25 +21,30 @@ import { ListEmpty } from '../../components/ListEmpty'
 import { useQuery } from 'react-query'
 import { api } from '../../services/api'
 import { Error } from '../../components/Error'
+import { useCallback } from 'react'
 
 export function MyTrainings() {
   const theme = useTheme()
 
   const navigation = useNavigation()
 
-  const { data: trainings, error } = useQuery<TrainingProps[]>(
-    '@trainings/my-trainings',
-    fetchTrainings,
-    {
-      retry: false,
-    },
-  )
+  const {
+    data: trainings,
+    error,
+    refetch,
+  } = useQuery<TrainingProps[]>('@trainings/my-trainings', fetchTrainings)
 
   async function fetchTrainings() {
     const response = await api.get('/trainings')
 
     return response.data
   }
+
+  useFocusEffect(
+    useCallback(() => {
+      refetch()
+    }, []),
+  )
 
   return (
     <MyTrainingsContainer>
@@ -52,9 +57,11 @@ export function MyTrainings() {
           subtitle="Visualize e gerencie todos os seus treinos"
         />
 
-        {trainings?.length > 0 && <HeadingList title="Treinos cadastrados" />}
+        {error && <Error error={String(error)} style={{ marginTop: 24 }} />}
 
-        {error && <Error error={String(error)} />}
+        {trainings && trainings.length > 0 && (
+          <HeadingList title="Treinos cadastrados" />
+        )}
 
         <FlatList
           data={trainings}

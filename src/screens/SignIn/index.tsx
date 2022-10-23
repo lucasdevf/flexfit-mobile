@@ -1,6 +1,7 @@
 /* REACT */
 import { Image, StatusBar } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useContext, useState } from 'react'
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native'
@@ -21,14 +22,17 @@ import Logo from '../../assets/logo.png'
 /* COMPONENTS */
 import { ButtonSignInWithGoogle } from '../../components/ButtonSignInWithGoogle'
 import { TextLogin } from '../../components/TextLogin'
+import { Error } from '../../components/Error'
 
 /* FORM */
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+
+/* API */
 import { api } from '../../services/api'
-import { useContext, useState } from 'react'
-import { Error } from '../../components/Error'
+
+/* CONTEXT */
 import { AuthContext } from '../../contexts/AuthContext'
 
 const formSchema = z.object({
@@ -46,11 +50,7 @@ export function SignIn() {
 
   const { setIsSigned } = useContext(AuthContext)
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormType>({
+  const { control, handleSubmit } = useForm<FormType>({
     resolver: zodResolver(formSchema),
   })
 
@@ -92,12 +92,14 @@ export function SignIn() {
           name="email"
           keyboardType="email-address"
           control={control}
+          placeholder="Digite seu e-mail"
         />
         <Input
           label="Senha"
           name="password"
           secureTextEntry
           control={control}
+          placeholder="Digite sua senha"
         />
 
         <ForgotPassword>
