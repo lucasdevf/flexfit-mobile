@@ -12,5 +12,3 @@ export const MyTrainingsContainer = styled(SafeAreaView)`
 export const Content = styled.View`
   flex: 1;
 `
-
-export const TrainingsList = styled.View``

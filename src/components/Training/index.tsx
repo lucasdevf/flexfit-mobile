@@ -2,6 +2,7 @@ import { ButtonDelete } from '../ButtonDelete'
 import { Content, TrainingContainer, Title, Weekdays } from './styles'
 
 export interface TrainingProps {
+  id: string
   name: string
   weekdays: number[]
 }

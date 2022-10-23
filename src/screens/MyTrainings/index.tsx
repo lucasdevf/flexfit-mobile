@@ -1,5 +1,5 @@
 /* REACT */
-import { useState } from 'react'
+import { FlatList } from 'react-native'
 
 /* COMPONENTS */
 import { Barbell } from 'phosphor-react-native'
@@ -15,24 +15,31 @@ import { useNavigation } from '@react-navigation/native'
 
 /* STYLES */
 import { useTheme } from 'styled-components/native'
-import { MyTrainingsContainer, Content, TrainingsList } from './styles'
+import { MyTrainingsContainer, Content } from './styles'
 import { Training, TrainingProps } from '../../components/Training'
+import { ListEmpty } from '../../components/ListEmpty'
+import { useQuery } from 'react-query'
+import { api } from '../../services/api'
+import { Error } from '../../components/Error'
 
 export function MyTrainings() {
   const theme = useTheme()
 
   const navigation = useNavigation()
 
-  const [trainings, setTrainings] = useState<TrainingProps[]>([
+  const { data: trainings, error } = useQuery<TrainingProps[]>(
+    '@trainings/my-trainings',
+    fetchTrainings,
     {
-      name: 'Treino A',
-      weekdays: [1, 2, 3, 4],
+      retry: false,
     },
-    {
-      name: 'Treino B',
-      weekdays: [0, 1, 2, 3, 4, 5, 6],
-    },
-  ])
+  )
+
+  async function fetchTrainings() {
+    const response = await api.get('/trainings')
+
+    return response.data
+  }
 
   return (
     <MyTrainingsContainer>
@@ -45,13 +52,20 @@ export function MyTrainings() {
           subtitle="Visualize e gerencie todos os seus treinos"
         />
 
-        <HeadingList title="Treinos cadastrados" />
+        {trainings?.length > 0 && <HeadingList title="Treinos cadastrados" />}
 
-        <TrainingsList>
-          {trainings.map((training) => (
-            <Training key={training.name} data={training} />
-          ))}
-        </TrainingsList>
+        {error && <Error error={String(error)} />}
+
+        <FlatList
+          data={trainings}
+          keyExtractor={(item) => item.id}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => <Training data={item} />}
+          ListEmptyComponent={
+            <ListEmpty message="Nenhum treino cadastrado ainda." />
+          }
+          contentContainerStyle={{ flex: 1 }}
+        />
       </Content>
 
       <Button

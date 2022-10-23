@@ -58,11 +58,14 @@ export function SignIn() {
 
   async function signIn(data: FormType) {
     try {
-      await api.post('/auth/login', data)
+      const response = await api.post('/auth/login', data)
 
       setIsSigned(true)
 
-      await AsyncStorage.setItem('@flexFit:token-auth', '123')
+      await AsyncStorage.setItem(
+        '@flexFit:token-auth',
+        response.data.access_token,
+      )
 
       navigation.navigate('appBottomTabs')
     } catch (error) {
