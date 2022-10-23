@@ -1,3 +1,5 @@
+import { TrainingProps } from '../components/Training'
+
 /* eslint-disable */
 export declare global {
   namespace ReactNavigation {
@@ -11,6 +13,9 @@ export declare global {
       addExercise: undefined
       createTrainingName: undefined
       calendar: undefined
+      deleteTraining: {
+        training: TrainingProps
+      }
     }
   }
 }

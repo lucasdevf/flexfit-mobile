@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import { ButtonDelete } from '../ButtonDelete'
 import { Content, TrainingContainer, Title, Weekdays } from './styles'
 
@@ -12,6 +13,8 @@ interface Props {
 }
 
 export function Training({ data }: Props) {
+  const navigation = useNavigation()
+
   function renderWeekdays() {
     if (data.weekdays.length === 7) {
       return 'Todos os dias'
@@ -55,7 +58,11 @@ export function Training({ data }: Props) {
         <Weekdays>{renderWeekdays()}</Weekdays>
       </Content>
 
-      <ButtonDelete onDelete={() => {}} />
+      <ButtonDelete
+        onDelete={() =>
+          navigation.navigate('deleteTraining', { training: data })
+        }
+      />
     </TrainingContainer>
   )
 }

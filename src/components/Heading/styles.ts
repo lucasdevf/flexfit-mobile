@@ -22,4 +22,5 @@ export const Subtitle = styled.Text`
   `}
 
   margin-top: 6px;
+  line-height: 24px;
 `

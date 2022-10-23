@@ -30,7 +30,7 @@ export function CreateTrainingName() {
     resolver: zodResolver(formSchema),
   })
 
-  const { mutate } = useMutation(
+  const { mutate, isLoading } = useMutation(
     '@create-training/create-training',
     createTraining,
   )
@@ -53,7 +53,7 @@ export function CreateTrainingName() {
       <HeaderGoBack
         steps={{
           steps,
-          indexActive: 1,
+          indexActive: 2,
         }}
       />
 
@@ -68,6 +68,7 @@ export function CreateTrainingName() {
         title="Finalizar"
         style={{ marginTop: 20 }}
         onPress={handleSubmit(mutate)}
+        isLoading={isLoading}
       />
     </CreateTrainingNameContainer>
   )
