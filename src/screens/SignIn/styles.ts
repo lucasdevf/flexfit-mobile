@@ -13,6 +13,7 @@ export const SignInContainer = styled(SafeAreaView)`
   justify-content: center;
 
   flex: 1;
+  background: white;
 `
 
 export const Form = styled.View`

@@ -7,6 +7,7 @@ import { CreateTrainingWeekdays } from '../screens/CreateTraining/Weekdays'
 import { CreateTrainingExercises } from '../screens/CreateTraining/Exercises'
 import { AddExercise } from '../screens/CreateTraining/AddExercise'
 import { CreateTrainingName } from '../screens/CreateTraining/Name'
+import { Calendar } from '../screens/Calendar'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
@@ -42,6 +43,8 @@ export function AppRoutes() {
         />
 
         <Screen name="createTrainingName" component={CreateTrainingName} />
+
+        <Screen name="calendar" component={Calendar} />
       </Navigator>
     </>
   )

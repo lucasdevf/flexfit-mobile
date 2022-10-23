@@ -40,6 +40,7 @@ export function Training() {
         <ButtonOptionScreen
           title="Calendário"
           icon={<Calendar color={COLORS.PURPLE_500} />}
+          onPress={() => navigation.navigate('calendar')}
         />
       </Options>
     </TrainingContainer>

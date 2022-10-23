@@ -10,6 +10,7 @@ export declare global {
       createTrainingExercises: undefined
       addExercise: undefined
       createTrainingName: undefined
+      calendar: undefined
     }
   }
 }
