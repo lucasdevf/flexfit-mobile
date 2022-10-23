@@ -1,10 +1,15 @@
+import { useContext } from 'react'
+import { TrainingContext } from '../../contexts/TrainingContext'
 import { ButtonDelete } from '../ButtonDelete'
 import { Content, Details, ExerciseContainer, Name } from './styles'
 
 export interface ExerciseProps {
+  id?: string
   name: string
   series: number
   repetitions: number
+  created_at?: string
+  updated_at?: string
 }
 
 interface Props {
@@ -12,6 +17,8 @@ interface Props {
 }
 
 export function Exercise({ data }: Props) {
+  const { handleRemoveExercise } = useContext(TrainingContext)
+
   return (
     <ExerciseContainer>
       <Content>
@@ -21,7 +28,7 @@ export function Exercise({ data }: Props) {
         }`}</Details>
       </Content>
 
-      <ButtonDelete onDelete={() => {}} />
+      <ButtonDelete onDelete={() => handleRemoveExercise(data)} />
     </ExerciseContainer>
   )
 }

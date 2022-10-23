@@ -1,6 +1,6 @@
 /* COMPONENTS */
 import { Button } from '../../../components/Button'
-import { ExerciseProps, Exercise } from '../../../components/Exercise'
+import { Exercise } from '../../../components/Exercise'
 import { HeaderGoBack } from '../../../components/HeaderGoBack'
 import { HeadingList } from '../../../components/HeadingList'
 
@@ -13,24 +13,15 @@ import {
 
 /* NAVIGATION */
 import { useNavigation } from '@react-navigation/native'
+import { useContext } from 'react'
+import { TrainingContext } from '../../../contexts/TrainingContext'
 
 export function CreateTrainingExercises() {
+  const { training } = useContext(TrainingContext)
+
   const steps = ['weekdays', 'exercises', 'name']
 
   const navigation = useNavigation()
-
-  const exercises: ExerciseProps[] = [
-    {
-      name: 'Supino reto',
-      series: 4,
-      repetitions: 10,
-    },
-    {
-      name: 'Rosca direta',
-      series: 4,
-      repetitions: 10,
-    },
-  ]
 
   return (
     <CreateTrainingExercisesContainer>
@@ -55,7 +46,7 @@ export function CreateTrainingExercises() {
       <HeadingList title="Exercícios adicionados" />
 
       <ExercisesList>
-        {exercises.map((exercise) => (
+        {training.exercises?.map((exercise) => (
           <Exercise key={exercise.name} data={exercise} />
         ))}
       </ExercisesList>

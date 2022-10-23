@@ -1,10 +1,16 @@
 import { createContext, ReactNode, useCallback, useState } from 'react'
-import { TrainingProps } from '../components/Training'
-
+import { ExerciseProps } from '../components/Exercise'
+interface CreateTrainingProps {
+  name: string
+  weekdays: number[]
+  exercises: ExerciseProps[]
+}
 interface TrainingContextType {
-  training: TrainingProps
+  training: CreateTrainingProps
   handleChangeWeekdays: (weekdays: number[]) => void
   handleChangeName: (name: string) => void
+  handleAddExercise: (exercise: ExerciseProps) => void
+  handleRemoveExercise: (exercise: ExerciseProps) => void
 }
 
 export const TrainingContext = createContext({} as TrainingContextType)
@@ -16,7 +22,7 @@ interface TrainingContextProviderProps {
 export function TrainingContextProvider({
   children,
 }: TrainingContextProviderProps) {
-  const [training, setTraining] = useState({} as TrainingProps)
+  const [training, setTraining] = useState({} as CreateTrainingProps)
 
   const handleChangeWeekdays = useCallback(
     (weekdays: number[]) => {
@@ -32,12 +38,45 @@ export function TrainingContextProvider({
     [training],
   )
 
+  const handleAddExercise = useCallback(
+    (exercise: ExerciseProps) => {
+      const exerciseAlreadyAdded = training.exercises?.find(
+        (item) => item.name === exercise.name,
+      )
+
+      if (exerciseAlreadyAdded) throw Error('Este exercício já foi adicionado.')
+
+      setTraining((prevState) => ({
+        ...prevState,
+        exercises:
+          prevState.exercises?.length > 0
+            ? [...prevState.exercises, exercise]
+            : [exercise],
+      }))
+    },
+    [training],
+  )
+
+  const handleRemoveExercise = useCallback(
+    (exercise: ExerciseProps) => {
+      setTraining((prevState) => ({
+        ...prevState,
+        exercises: prevState.exercises.filter(
+          (item) => item.name !== exercise.name,
+        ),
+      }))
+    },
+    [training],
+  )
+
   return (
     <TrainingContext.Provider
       value={{
         training,
         handleChangeWeekdays,
         handleChangeName,
+        handleAddExercise,
+        handleRemoveExercise,
       }}
     >
       {children}

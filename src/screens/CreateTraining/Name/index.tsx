@@ -38,11 +38,12 @@ export function CreateTrainingName() {
   async function createTraining(data: FormType) {
     const { name } = data
 
-    const { weekdays } = training
+    const { weekdays, exercises } = training
 
     await api.post('/trainings', {
       name,
       weekdays,
+      exercises,
     })
 
     navigation.navigate('myTrainings')
