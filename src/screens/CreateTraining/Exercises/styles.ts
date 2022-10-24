@@ -16,7 +16,3 @@ export const Label = styled.Text`
     font-family: ${theme.FONT_FAMILY.MEDIUM};
   `}
 `
-
-export const ExercisesList = styled.View`
-  flex: 1;
-`

@@ -1,5 +1,6 @@
 /* REACT */
 import { FlatList } from 'react-native'
+import { useCallback } from 'react'
 
 /* COMPONENTS */
 import { Barbell } from 'phosphor-react-native'
@@ -9,6 +10,9 @@ import { HeaderGoBack } from '../../components/HeaderGoBack'
 import { Heading } from '../../components/Heading'
 import { HeadingList } from '../../components/HeadingList'
 import { Button } from '../../components/Button'
+import { Error } from '../../components/Error'
+import { Training, TrainingProps } from '../../components/Training'
+import { ListEmpty } from '../../components/ListEmpty'
 
 /* NAVIGATION */
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
@@ -16,12 +20,10 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native'
 /* STYLES */
 import { useTheme } from 'styled-components/native'
 import { MyTrainingsContainer, Content } from './styles'
-import { Training, TrainingProps } from '../../components/Training'
-import { ListEmpty } from '../../components/ListEmpty'
+
+/* REQUEST */
 import { useQuery } from 'react-query'
 import { api } from '../../services/api'
-import { Error } from '../../components/Error'
-import { useCallback } from 'react'
 
 export function MyTrainings() {
   const theme = useTheme()
