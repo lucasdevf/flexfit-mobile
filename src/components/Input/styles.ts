@@ -12,7 +12,11 @@ export const Label = styled.Text`
   `}
 `
 
-export const InputField = styled.TextInput`
+interface InputFieldProps {
+  hasError: boolean
+}
+
+export const InputField = styled.TextInput<InputFieldProps>`
   border-radius: 8px;
 
   width: 100%;
@@ -23,10 +27,21 @@ export const InputField = styled.TextInput`
   margin-top: 8px;
   padding: 16px;
 
-  ${({ theme }) => css`
-    border: 1px solid ${theme.COLORS.GRAY_200};
+  ${({ theme, hasError }) => css`
+    border: 1px solid
+      ${!hasError ? theme.COLORS.GRAY_200 : theme.COLORS.RED_500};
     color: ${theme.COLORS.GRAY_700};
     font-family: ${theme.FONT_FAMILY.MEDIUM};
     font-size: ${theme.FONT_SIZE.SM}px;
   `}
+`
+
+export const Error = styled.Text`
+  ${({ theme }) => css`
+    color: ${theme.COLORS.RED_500};
+    font-family: ${theme.FONT_FAMILY.REGULAR};
+    font-size: ${theme.FONT_SIZE.SM}px;
+  `}
+
+  margin-top: 4px;
 `

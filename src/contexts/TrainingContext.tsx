@@ -11,6 +11,7 @@ interface TrainingContextType {
   handleChangeName: (name: string) => void
   handleAddExercise: (exercise: ExerciseProps) => void
   handleRemoveExercise: (exercise: ExerciseProps) => void
+  clearContext: () => void
 }
 
 export const TrainingContext = createContext({} as TrainingContextType)
@@ -69,6 +70,10 @@ export function TrainingContextProvider({
     [training],
   )
 
+  const clearContext = useCallback(() => {
+    setTraining({} as CreateTrainingProps)
+  }, [training])
+
   return (
     <TrainingContext.Provider
       value={{
@@ -77,6 +82,7 @@ export function TrainingContextProvider({
         handleChangeName,
         handleAddExercise,
         handleRemoveExercise,
+        clearContext,
       }}
     >
       {children}

@@ -20,7 +20,7 @@ const formSchema = z.object({
 type FormType = z.infer<typeof formSchema>
 
 export function CreateTrainingName() {
-  const { training } = useContext(TrainingContext)
+  const { training, clearContext } = useContext(TrainingContext)
 
   const steps = ['weekdays', 'exercises', 'name']
 
@@ -47,6 +47,8 @@ export function CreateTrainingName() {
     })
 
     navigation.navigate('myTrainings')
+
+    clearContext()
   }
 
   return (

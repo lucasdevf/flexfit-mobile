@@ -50,7 +50,11 @@ export function SignIn() {
 
   const { setIsSigned } = useContext(AuthContext)
 
-  const { control, handleSubmit } = useForm<FormType>({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormType>({
     resolver: zodResolver(formSchema),
   })
 
@@ -69,7 +73,6 @@ export function SignIn() {
 
       navigation.navigate('appBottomTabs')
     } catch (error) {
-      console.log(error)
       setErrorRequest(String(error))
     }
   }
@@ -93,6 +96,7 @@ export function SignIn() {
           keyboardType="email-address"
           control={control}
           placeholder="Digite seu e-mail"
+          errors={errors}
         />
         <Input
           label="Senha"
@@ -100,6 +104,7 @@ export function SignIn() {
           secureTextEntry
           control={control}
           placeholder="Digite sua senha"
+          errors={errors}
         />
 
         <ForgotPassword>

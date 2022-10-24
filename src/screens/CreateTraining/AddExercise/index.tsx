@@ -29,7 +29,12 @@ type FormType = z.infer<typeof formSchema>
 export function AddExercise() {
   const { handleAddExercise } = useContext(TrainingContext)
 
-  const { control, handleSubmit, reset } = useForm<FormType>({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormType>({
     resolver: zodResolver(formSchema),
   })
 
@@ -71,6 +76,7 @@ export function AddExercise() {
             name="name"
             placeholder="Digite o nome do exercício"
             control={control}
+            errors={errors}
           />
 
           <Row>
@@ -83,6 +89,7 @@ export function AddExercise() {
               }}
               control={control}
               keyboardType="numeric"
+              errors={errors}
             />
 
             <InputStyled
@@ -91,6 +98,7 @@ export function AddExercise() {
               placeholder="Nº repetições"
               control={control}
               keyboardType="numeric"
+              errors={errors}
             />
           </Row>
 
