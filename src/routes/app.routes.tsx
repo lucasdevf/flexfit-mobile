@@ -9,6 +9,7 @@ import { AddExercise } from '../screens/CreateTraining/AddExercise'
 import { CreateTrainingName } from '../screens/CreateTraining/Name'
 import { Calendar } from '../screens/Calendar'
 import { DeleteTraining } from '../screens/DeleteTraining'
+import { Measurements } from '../screens/Measurements'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
@@ -55,6 +56,8 @@ export function AppRoutes() {
             animation: 'fade_from_bottom',
           }}
         />
+
+        <Screen name="measurements" component={Measurements} />
       </Navigator>
     </>
   )

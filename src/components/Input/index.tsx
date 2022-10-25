@@ -9,12 +9,21 @@ interface Props extends TextInputProps {
   name: string
   control: Control<any>
   errors?: any
+  defaultValue?: string
 }
 
-export function Input({ label, control, name, style, errors, ...rest }: Props) {
+export function Input({
+  label,
+  control,
+  name,
+  style,
+  errors,
+  defaultValue,
+  ...rest
+}: Props) {
   const { field } = useController({
     control,
-    defaultValue: '',
+    defaultValue: defaultValue ?? '',
     name,
   })
 

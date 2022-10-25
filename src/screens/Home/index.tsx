@@ -13,8 +13,11 @@ import { Weight } from '../../components/Weight'
 /* STYLES */
 import { Content, HomeContainer, Buttons } from './styles'
 import { LinearGradient } from 'expo-linear-gradient'
+import { useNavigation } from '@react-navigation/native'
 
 export function Home() {
+  const navigation = useNavigation()
+
   return (
     <>
       <StatusBar
@@ -40,7 +43,11 @@ export function Home() {
             <Weight />
 
             <Buttons>
-              <ButtonIcon icon={<Ruler />} title="Medidas" />
+              <ButtonIcon
+                icon={<Ruler />}
+                title="Medidas"
+                onPress={() => navigation.navigate('measurements')}
+              />
               <ButtonIcon icon={<Crosshair />} title="Metas" />
               <ButtonIcon icon={<ListChecks />} title="Histórico" />
             </Buttons>

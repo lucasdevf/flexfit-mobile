@@ -16,6 +16,7 @@ export declare global {
       deleteTraining: {
         training: TrainingProps
       }
+      measurements: undefined
     }
   }
 }

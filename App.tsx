@@ -1,5 +1,5 @@
 /* REACT */
-import { Text } from 'react-native'
+import { StatusBar, Text } from 'react-native'
 
 /* STYLES */
 import { ThemeProvider } from 'styled-components'
@@ -33,6 +33,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
+      />
+
       <QueryClientProvider client={queryClient}>
         <AuthContextProvider>
           <TrainingContextProvider>
